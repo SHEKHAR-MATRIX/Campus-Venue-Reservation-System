@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Venue Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header>
+        <h1>Campus Venue Booking</h1>
+        <p>Pick a venue, check its time slots, and send a booking request</p>
+    </header>
+
+    <main>
+
+        <section class="summary">
+            <div class="card"><h2 id="venueCount">4</h2><p>Venues</p></div>
+            <div class="card"><h2 id="bookingCount">0</h2><p>Bookings</p></div>
+            <div class="card"><h2 id="pendingCount">0</h2><p>Pending</p></div>
+        </section>
+
+        <section>
+            <h2>Venue Directory</h2>
+            <p class="hint">Select a venue to see its details.</p>
+            <div id="venueDirectory" class="venues"></div>
+            <div id="venueDetails" class="details-card"></div>
+        </section>
+
+        <section class="form-section">
+            <h2>Request a Booking</h2>
+
+            <form id="bookingForm">
+
+                <label for="venue">Venue</label>
+                <select id="venue" required>
+                    <option value="">Choose a venue</option>
+                </select>
+
+                <label for="bookingDate">Date</label>
+                <input id="bookingDate" type="date" required>
+
+                <label>Time Slot</label>
+                <div class="legend">
+                    <span class="dot available"></span>Available
+                    <span class="dot pending"></span>Pending
+                    <span class="dot reserved"></span>Reserved
+                </div>
+                <div id="slotGrid" class="slot-grid">
+                    <p class="hint">Choose a venue and date to see slots.</p>
+                </div>
+
+                <label for="studentName">Your Name</label>
+                <input id="studentName" type="text" placeholder="Enter your name" required>
+
+                <label for="eventName">Event Name</label>
+                <input id="eventName" type="text" placeholder="Enter event name" required>
+
+                <label for="attendance">Expected Attendance</label>
+                <input id="attendance" type="number" min="1" placeholder="Number of people" required>
+
+                <fieldset>
+                    <legend>Required AV Equipment</legend>
+                    <label class="check"><input type="checkbox" name="av" value="Projector"> Projector</label>
+                    <label class="check"><input type="checkbox" name="av" value="Microphones"> Microphones</label>
+                    <label class="check"><input type="checkbox" name="av" value="Speakers"> Speakers</label>
+                    <label class="check"><input type="checkbox" name="av" value="Laptop"> Laptop</label>
+                    <label class="check"><input type="checkbox" name="av" value="Video Conferencing"> Video Conferencing</label>
+                </fieldset>
+
+                <button type="submit">Send Booking Request</button>
+            </form>
+
+            <p id="message" aria-live="polite"></p>
+        </section>
+
+        <section>
+            <h2>Booking List</h2>
+            <div id="bookingList" class="booking-list">No bookings yet.</div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Student Project Demo | Data is saved in this browser</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
